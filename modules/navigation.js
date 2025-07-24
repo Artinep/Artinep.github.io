@@ -169,7 +169,7 @@ class Navigation {
 	}
 
 	unlockData(userkey) {
-		if ( this.key != undefined && this.dontBurteforceUrMama < 30 ) {
+		if ( this.dontBurteforceUrMama < 30 ) {
 			try {
 				let encrypted = CryptoJS.AES.encrypt(userkey, userkey);
 				this.key = encrypted.toString();
