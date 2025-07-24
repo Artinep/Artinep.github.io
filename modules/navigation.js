@@ -166,6 +166,8 @@ class Navigation {
 		if ( this.key != undefined ) {
 			let encrypted = window.encryption.encrypt(JSON.stringify(data), this.key);
 			let ojbect = this.key.concat(encrypted);
+			console.log("key: "+this.key);
+			console.log("data: "+ojbect);
 			window.storage.setItem("defaultUser", ojbect);
 		}
 	}
