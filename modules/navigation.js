@@ -32,7 +32,7 @@ class Navigation {
 				let cleartext = decrypted.toString(CryptoJS.enc.Utf8);
 				return cleartext;
 			} else return undefined;
-		} catch (e) return undefined;
+		} catch (e) { return undefined; }
 	}
 
 	isCompatible() {
