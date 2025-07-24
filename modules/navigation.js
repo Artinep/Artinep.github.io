@@ -141,7 +141,7 @@ class Navigation {
 
 	getData() {
 		try {
-			let data = window.storage.getItem("defaultUser");
+			let data = window.localStorage.getItem("defaultUser");
 			let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
 			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
@@ -156,7 +156,7 @@ class Navigation {
 		if ( this.key != undefined ) {
 			let encrypted = window.encryption.encrypt(JSON.stringify(data), this.key);
 			let ojbect = this.key.concat(encrypted);
-			window.storage.setItem("defaultUser", ojbect);
+			window.localStorage.setItem("defaultUser", ojbect);
 		}
 	}
 
