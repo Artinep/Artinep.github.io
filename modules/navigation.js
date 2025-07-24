@@ -141,13 +141,11 @@ class Navigation {
 
 	getData() {
 		try {
-			if ( this.key != undefined ) {
-				let data = window.storage.getItem("defaultUser");
-				let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
-				let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
-				Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
-				return true;
-			} else return false;			
+			let data = window.storage.getItem("defaultUser");
+			let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
+			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
+			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
+			return true;			
 		} catch (e) {
 			return false;
 		}
