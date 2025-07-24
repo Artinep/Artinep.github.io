@@ -174,11 +174,10 @@ class Navigation {
 				let encrypted = CryptoJS.AES.encrypt(userkey, userkey);
 				let ukey = encrypted.toString();
 				let data = window.storage.getItem("defaultUser");
-				let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
+				let decrypted = window.encryption.decrypt(this.cutString(ukey, data), ukey);
 				let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 				Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
 				if ( window.userData["default"] == ukey ) this.key = ukey;
-				console.log(ukey);
 			} catch (err) { this.dontBurteforceUrMama++;console.log(err); }
 		} else this.dontBurteforceUrMama++;
 	}
