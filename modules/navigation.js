@@ -21,7 +21,7 @@ class Navigation {
 	set isLocked(lk) { this.locked = lk; }
 	get navigationKey() { return this.key; }
 	set navigationKey(ky) {
-		let encrypted = CryptoJS.AES.encrypt(ky, ky);
+		let encrypted = CryptoJS.AES.encrypt(JSON.stringify({ ky }), ky);
 		let notAFuckingCircularType = encrypted.toString();
 		this.key = notAFuckingCircularType; 
 	}
@@ -173,7 +173,7 @@ class Navigation {
 	unlockData(userkey) {
 		if ( this.dontBurteforceUrMama < 30 ) {
 			try {
-				let encrypted = CryptoJS.AES.encrypt(userkey, userkey);
+				let encrypted = CryptoJS.AES.encrypt(JSON.stringify({ userkey }), userkey);
 				let ukey = encrypted.toString();
 				let data = window.storage.getItem("defaultUser");
 				let decrypted = window.encryption.decrypt(this.cutString(ukey, data), ukey);
