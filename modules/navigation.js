@@ -139,16 +139,22 @@ class Navigation {
 		}
 	}
 
+	isDataExist() {
+		try {
+			let data = window.storage.getItem("defaultUser");
+			console.log(data);
+			return true;
+		} catch (er) { return false; }
+	}
+
 	getData() {
 		try {
-			let data = window.localStorage.getItem("defaultUser");
+			let data = window.storage.getItem("defaultUser");
 			let decrypted = window.encryption.decrypt(this.cutString(this.key, data), this.key);
 			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
-			console.log("get data: OK");
 			return true;			
 		} catch (e) {
-			console.log("get data: FAIL, "+e);
 			return false;
 		}
 	}
@@ -158,7 +164,7 @@ class Navigation {
 		if ( this.key != undefined ) {
 			let encrypted = window.encryption.encrypt(JSON.stringify(data), this.key);
 			let ojbect = this.key.concat(encrypted);
-			window.localStorage.setItem("defaultUser", ojbect);
+			window.storage.setItem("defaultUser", ojbect);
 		}
 	}
 
