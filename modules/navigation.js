@@ -14,6 +14,7 @@ class Navigation {
 		this.escapeUrl = "https://www.google.com";
 		this.menu = '<button class="largebutton" id="setMainPage">Main page</button><button class="largebutton" id="setPassword">Update password</button><button class="largebutton" id="setWallet">Wallet</button><button class="largebutton" id="setHistory">History</button><button class="largebutton" id="setPool">Pool</button><button class="largebutton" id="setHelp">Help</button><button class="largebutton" id="setAbout">About</button>';
 		this.key = undefined;
+		this.dontBurteforceUrMama = 0;
 	}
 
 	get isLocked() { return this.locked; }
@@ -142,7 +143,6 @@ class Navigation {
 	isDataExist() {
 		try {
 			let data = window.storage.getItem("defaultUser");
-			console.log(data);
 			return true;
 		} catch (er) { return false; }
 	}
@@ -150,7 +150,7 @@ class Navigation {
 	getData() {
 		try {
 			let data = window.storage.getItem("defaultUser");
-			let decrypted = window.encryption.decrypt(this.cutString(this.key, data), this.key);
+			let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
 			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
 			return true;			
@@ -168,11 +168,29 @@ class Navigation {
 		}
 	}
 
+	unlockData(userkey) {
+		if ( this.key != undefined && this.dontBurteforceUrMama < 30 ) {
+			try {
+				let encrypted = CryptoJS.AES.encrypt(userkey, userkey);
+				this.key = encrypted.toString();
+				let data = window.storage.getItem("defaultUser");
+				let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
+				let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
+				Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
+			} catch (err) { this.dontBurteforceUrMama++; }
+		} else this.dontBurteforceUrMama++;
+	}
+
+	sliceString(strng) {
+		let len = this.key.length;
+		return strng.slice(0, len);
+	}
+
 	cutString(rmv, strng) {
 		return strng.replace(rmv, "");
 	}
 
-	checkLockTimeout() {
+	checkLockTimeout(page) {
 		if ( this.getData() ) {
 			let timeout = window.userData["lock"];
 			let lastlog = window.userData["time"];
@@ -184,7 +202,7 @@ class Navigation {
 					this.locked = false;
 					window.userData["time"] = now;
 					this.updateData(window.userData);
-					this.updateMainPage("<div>Main page</div>");
+					this.updateMainPage(page);
 				}
 			}
 		}
