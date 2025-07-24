@@ -69,4 +69,4 @@ class Encryption {
  * MAKE ENCRYPTION AVAILABLE TO ALL SCRYPT
  * --------------------------------------- 
  **/
-const encryption = new Encryption();
+window.encryption = new Encryption();
