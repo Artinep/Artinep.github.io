@@ -142,7 +142,7 @@ class Navigation {
 	getData() {
 		try {
 			let data = window.localStorage.getItem("defaultUser");
-			let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
+			let decrypted = window.encryption.decrypt(this.cutString(this.key, data), this.key);
 			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
 			console.log("get data: OK");
@@ -160,11 +160,6 @@ class Navigation {
 			let ojbect = this.key.concat(encrypted);
 			window.localStorage.setItem("defaultUser", ojbect);
 		}
-	}
-
-	sliceString(strng) {
-		let len = this.key.length;
-		return strng.slice(0, len);
 	}
 
 	cutString(rmv, strng) {
