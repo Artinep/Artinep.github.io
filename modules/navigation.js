@@ -145,8 +145,10 @@ class Navigation {
 			let decrypted = window.encryption.decrypt(this.cutString(this.sliceString(data), data), this.sliceString(data));
 			let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 			Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
+			console.log("get data: OK");
 			return true;			
 		} catch (e) {
+			console.log("get data: FAIL, "+e);
 			return false;
 		}
 	}
