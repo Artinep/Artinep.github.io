@@ -178,7 +178,8 @@ class Navigation {
 				let dataObject = JSON.parse(JSON.parse(JSON.stringify(decrypted)));
 				Object.keys(dataObject).forEach(key => { window.userData[key] = dataObject[key]; });
 				if ( window.userData["default"] == ukey ) this.key = ukey;
-			} catch (err) { this.dontBurteforceUrMama++; }
+				console.log(ukey);
+			} catch (err) { this.dontBurteforceUrMama++;console.log(err); }
 		} else this.dontBurteforceUrMama++;
 	}
 
