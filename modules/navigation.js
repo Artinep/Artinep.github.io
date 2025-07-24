@@ -143,7 +143,9 @@ class Navigation {
 	isDataExist() {
 		try {
 			let data = window.storage.getItem("defaultUser");
-			return true;
+			if ( data.length > 0 ) { 
+				return true; 
+			} else return false;			
 		} catch (er) { return false; }
 	}
 
