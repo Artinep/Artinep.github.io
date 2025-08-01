@@ -12,14 +12,14 @@ This page connects you straight to the smart contract, you don't use any kind of
 Trade, swapp, transfert, withdraw on ethereum network or other ethereum node.
 
 ### B-2- REAL Transparency and FEE:
-You can see everything you do through the page or an Ethereum Explorer. The smart contract takes a small fee for each transfer, but you decide how much that fee is (SURE there is no a--hole's hidden code that will loop on your fee).
+You can see everything you do through the page or an Ethereum Explorer. The smart contract takes a small fee for each transfer, but you decide how much that fee is.
 How fast your transfer is depends on the amount of fee you've put on it.
 How to know the right fee? They'll be displayed on the page as large, medium, and small. You've got the option to set the value as needed.
 
 ### B-3- CONTROL:
 It's written on a global register, so basically everyone's already controlling it.
 If you're paranoid or psychopathic, you can rest assured that the people who create nuclear weapons aren't going to use this page. They have their generals, submarines, and logistics for trafficking.
-We do take action, but only when it's absolutely necessary: We're going to verify the account reported by so many people as belonging to an a--hole, then we'll freeze it from the smart contract.
+We do take action, but only when it's absolutely necessary: We're going to verify the account reported by so many people as belonging to an axxhole, then we'll freeze it from the smart contract.
 
 ### B-4- Liquidity Providers (pool):
 Anybody can become a liquidity provider and earn a share of the pie on each contract transfer. transfers and earnings are displayed in full transparency on the page.
