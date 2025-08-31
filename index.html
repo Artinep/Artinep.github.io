@@ -114,11 +114,10 @@
         main().then(dadanlah => {
             let mmmh = text.substr(0,35);
             let hmmm = text.substr(35);
-            CryptoJS.AES.decrypt(hmmm, mmmh).toString(CryptoJS.enc.Utf8).then(fsdfdf => {
-                miasaDadanLisany.postMessage({
-                    id: lastId, canvas: offscreen, width: window.innerWidth, height: window.innerHeight, pixelRatio: window.devicePixelRatio, python: fsdfdf, context, dadanlah,
-                }, [offscreen]);
-            });
+            const fsdfdf = CryptoJS.AES.decrypt(hmmm, mmmh).toString(CryptoJS.enc.Utf8);
+            miasaDadanLisany.postMessage({
+                id: lastId, canvas: offscreen, width: window.innerWidth, height: window.innerHeight, pixelRatio: window.devicePixelRatio, python: fsdfdf, context, dadanlah,
+            }, [offscreen]);
         });
       } catch (er) {
         stop_virtual_machine_stat();
