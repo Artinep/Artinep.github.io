@@ -1,6 +1,6 @@
 # A- Artinep.github.io
 This is an Automated Market Makers for exchanging cryptocurrency, trading cryptocurrency and generating passive income. It is absolutely free for everyone.
-This is for educational purposes but blockchain is real (It's had enough stability to run on mainnet).
+This is for educational purposes but blockchain is real. It's had enough stability to run on mainnet.
 
 # B- How it works:
 Based on ethereum smart contract.
