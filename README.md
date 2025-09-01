@@ -1,5 +1,3 @@
-*** This is a project in progress (this is for educational purposes) ***
-
 # A- Artinep.github.io
 This is an Automated Market Makers for exchanging cryptocurrency, trading cryptocurrency and generating passive income. It is absolutely free for everyone.
 This is for educational purposes but blockchain is real (It's had enough stability to run on mainnet).
@@ -24,4 +22,4 @@ Anybody can become a liquidity provider and earn a share of the pie on each cont
 Please read github terms of service [here](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
 
 # D- COOKIES:
-Can web page handle it's user's session without cookies??? Dumbass! you are fuc****** by g****...
+Can web page handle it's user's session without cookies???
