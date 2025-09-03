@@ -1,5 +1,5 @@
-import { loadPyodide } from "http://localhost/pyodide/js/pyodide.mjs";
-import { ethers } from "http://localhost/pyodide/js/mamanlisany.js";
+import { loadPyodide } from "https://artinep.github.io/js/pyodide.mjs";
+import { ethers } from "https://artinep.github.io/js/mamanlisany.js";
 
 
 self.sary = null;
